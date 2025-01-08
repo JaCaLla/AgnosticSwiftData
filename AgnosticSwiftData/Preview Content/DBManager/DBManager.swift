@@ -6,7 +6,6 @@
 //
 
 import SwiftData
-import SwiftUI
 import Foundation
 
 @MainActor
@@ -65,6 +64,7 @@ extension DBManager: DBManagerProtocol {
 
         do {
             try modelContext.save()
+            tasks = fetchTasks()
         } catch {
             print("Error on updating task: \(error)")
         }
