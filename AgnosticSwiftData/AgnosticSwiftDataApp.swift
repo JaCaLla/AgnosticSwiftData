@@ -11,7 +11,17 @@ import SwiftUI
 struct AgnosticSwiftDataApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabView {
+                TaskListView()
+                    .tabItem {
+                    Label("SwiftData", systemImage: "list.dash")
+                }
+                    .modelContainer(for: [TaskDB.self])
+                AgnosticTaskListView()
+                    .tabItem {
+                    Label("Agnostic", systemImage: "list.dash")
+                }
+            }
         }
     }
 }
